@@ -119,7 +119,9 @@ function recommend() {
 				}
 			}
 			$("#recommend").append(str);	
+			FB.XFBML.parse(document.getElementById('recommend'));
 		});
+
 	}
 }
 
