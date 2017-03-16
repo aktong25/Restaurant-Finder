@@ -100,25 +100,27 @@ function recommend() {
 			});
 			data.reverse();
 
+			var str = "";
+
 			var restInfo = [data.length]
 			for (i = 0; i < data.length; i++) {
 				if ((measure(markerLoc.lat(), markerLoc.lng(), 
 					parseFloat(data[i].address.location.lat), 
 					parseFloat(data[i].address.location.lng)) <= circle.getRadius()) &&
 					(data[i].rating >= parseFloat(min)) && (data[i].rating <= parseFloat(max))) {
-					$("#recommend").append('<p class="restRecc"><h3>'+ data[i].name +'</h3>');
-					$("#recommend").append('<table><tr></tr><tr><th>Location:</th><td>'+ 
+					str = str.concat('<p class="restRecc"><h3>'+ data[i].name +'</h3>');
+					str = str.concat('<table><tr></tr><tr><th>Location:</th><td>'+ 
 							data[i].address.street +'</td></tr><tr><td></td><td>' + data[i].address.city +
 							'</td></tr><tr><td></td><td>'+ data[i].address.state +'</td></tr><tr><th>Rating:</th><td>' +
 							data[i].rating + '</td></tr><tr><th>Website:</th><td>'+ data[i].contact.site + '</td></tr><tr>' +
 							'<th>Email:</th><td>' + data[i].contact.email + '</td></tr><tr><th>Phone:</th><td>' +
 							data[i].contact.phone + '</td></tr></table></p>');
-
-					$("#recommend").append('<div class="fb-like" data-href="' + data[i].contact.site +'" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>');	
+					str = str.concat('<div class="fb-like" data-href="' + data[i].contact.site +'" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>');
 				}
 			}
-			FB.XFBML.parse(document.getElementById('recommend'));
+			$("#recommend").append(str);	
 		});
+
 	}
 }
 
