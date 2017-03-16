@@ -72,7 +72,7 @@ function getInfo(radius, location) {
 			std = Math.sqrt(std/ratings.length);
 		}
 		$('#info').append('<p class="first"><h2 id="information">Area Information</h2>');
-		$('#info').append('<p id="count">Number of Restaurants in the Area (0-4): ' + countOfRes + '</p>');
+		$('#info').append('<p id="count">Number of Restaurants in the Area: ' + countOfRes + '</p>');
 		$('#info').append('<p id="average">Average Rating of Restaurants in the Area: ' + average + '</p>');	
 		$('#info').append('<p id="std">Standard Deviations of Ratings of Restaurants in the Area: ' + std + '</p></p>');
 	}); 
@@ -119,9 +119,7 @@ function recommend() {
 				}
 			}
 			$("#recommend").append(str);	
-			//FB.XFBML.parse(document.getElementById('recommend'));
 		});
-
 	}
 }
 
