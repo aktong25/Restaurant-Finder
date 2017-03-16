@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+<head>
+	<style>
+		body {background-color: lightgreen;}
+		h1 {  font-family: 'Open Sans', sans-serif;
+			  color: #555;
+			  text-decoration: none;
+			  text-transform: uppercase;
+			  font-weight: 800;
+			  letter-spacing: -3px;
+			  line-height: 1;
+			  text-shadow: #EDEDED 3px 2px 0;
+			  position: relative;}
+		p.restRecc {
+    		border: 10px solid white;
+		}
+		p.request {
+  			font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+		}
+		h2 {
+			text-decoration: underline;
+			text-decoration: bold;
+			font: 300 1.5em/1 'Raleway', sans-serif;
+			color: white;
+		    text-transform: uppercase;
+		    width: 100%;
+		}
+		table {
+			text-align: left;
+		}
+
+	</style>
+</head>
+<body>
+<script src="http://code.jquery.com/jquery-2.0.0.js"></script>
+<script src='http://connect.facebook.net/en_US/all.js'></script>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<h1>Restaurant Finder</h1>
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+
+  <p class="request">Range of Restaurant Ratings for Recommendation (0-4):  Min
+	  <input type="text" id="min" value=""/> Max
+	  <input type="text" id="max" value=""/>
+	  <button onclick="recommend()">Recommend</button>
+  </p> 
+
+
+<div style="float:left; width:40%" id="info"></div>
+<div style="float:right; width:40%; margin-left:30px" id="recommend"></div>
+
+<script type="text/javascript" src="js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAm6dMTH_eIPCfWW8LyPgmFWAFQyqjeptY&callback=myMap"></script>
+</body>
+</html>
